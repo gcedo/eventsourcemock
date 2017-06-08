@@ -1,0 +1,20 @@
+{
+  "name": "eventsourcemock",
+  "version": "1.0.0",
+  "description": "A mock for EventSource.",
+  "main": "index.js",
+  "scripts": {
+    "flow": "flow",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "flow-bin": "^0.47.0",
+    "jest": "^20.0.4"
+  },
+  "dependencies": {}
+}
