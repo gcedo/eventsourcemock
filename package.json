@@ -13,8 +13,18 @@
     "babel-cli": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^2.8.2",
     "flow-bin": "^0.47.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "jest": {
+    "setupFiles": [
+      "./__test__/configJSDom.js"
+    ]
+  }
 }

@@ -1,4 +1,5 @@
 // @flow
-import EventSource from './EventSource';
+import EventSource, { sources } from './EventSource';
 
 export default EventSource;
+export { sources };

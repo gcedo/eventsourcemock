@@ -11,6 +11,8 @@ const defaultOptions = {
   withCredentials: false,
 };
 
+export const sources: { [key: string]: EventSource } = {};
+
 export default class EventSource {
   __emitter: EventEmitter;
   onerror: ?EventHandler;
@@ -26,7 +28,9 @@ export default class EventSource {
   ) {
     this.url = url;
     this.withCredentials = configuration.withCredentials;
+    this.readyState = 1;
     this.__emitter = new EventEmitter();
+    sources[url] = this;
   }
 
   addEventListener(eventName: string, listener: Function) {
@@ -39,5 +43,11 @@ export default class EventSource {
 
   emit(eventName: string, messageEvent: MessageEvent) {
     this.__emitter.emit(eventName, messageEvent.data);
+  }
+
+  emitError(error: any) {
+    if (typeof this.onerror === 'function') {
+      this.onerror(error);
+    }
   }
 }
