@@ -55,3 +55,20 @@ describe('close', () => {
     expect(eventSource.readyState).toBe(2);
   });
 });
+
+describe('error', () => {
+  let eventSource;
+  let onErrorSpy;
+  let error;
+  beforeAll(() => {
+    onErrorSpy = jest.fn();
+    eventSource = new EventSource(URL);
+    error = new Error('something wrong');
+    eventSource.onerror = onErrorSpy;
+    eventSource.emitError(error);
+  });
+
+  it('should call onerror', () => {
+    expect(onErrorSpy).toHaveBeenCalledWith(error);
+  });
+});
