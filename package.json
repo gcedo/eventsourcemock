@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Mock EventSource in tests.",
   "main": "./lib/index.js",
+  "repository": "gcedo/eventsourcemock",
   "scripts": {
     "flow": "flow",
     "test": "jest",
