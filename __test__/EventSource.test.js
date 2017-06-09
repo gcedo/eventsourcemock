@@ -3,9 +3,9 @@ import EventSource from '../src/EventSource';
 
 const URL = 'https://example.com/events';
 const EVENT_NAME = 'EVENT_NAME';
-const messageEvent = {
+const messageEvent = new MessageEvent(EVENT_NAME, {
   data: 'message event data',
-};
+});
 
 describe('constructor', () => {
   let eventSource;
@@ -39,7 +39,7 @@ describe('add a listener', () => {
   });
 
   it('should call the listener', () => {
-    eventSource.emit(EVENT_NAME, messageEvent);
+    eventSource.emit(messageEvent.type, messageEvent);
     expect(listener).toHaveBeenCalledWith(messageEvent.data);
   });
 });

@@ -5,6 +5,10 @@ import { mount } from 'enzyme';
 import Component from './Component';
 import { sources } from '../src/EventSource';
 
+const messageEvent = new MessageEvent('foo', {
+  data: '1',
+});
+
 describe('update counter on SSE', () => {
   let wrapper;
   beforeAll(() => {
@@ -20,7 +24,7 @@ describe('update counter on SSE', () => {
   });
 
   it('should update the counter to 1', () => {
-    sources['http://example.com/events'].emit('foo', { data: '1' });
+    sources['http://example.com/events'].emit(messageEvent.type, messageEvent);
     expect(wrapper.state('counter')).toBe(1);
   });
 
