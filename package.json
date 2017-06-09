@@ -1,7 +1,7 @@
 {
   "name": "eventsourcemock",
-  "version": "1.0.0",
-  "description": "A mock for EventSource.",
+  "version": "0.0.0",
+  "description": "Mock EventSource in tests.",
   "main": "./lib/index.js",
   "scripts": {
     "flow": "flow",
@@ -12,7 +12,7 @@
     "precommit": "lint-staged"
   },
   "author": "Edoardo Colombo <edo.gcolombo@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
