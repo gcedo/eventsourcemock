@@ -2,7 +2,7 @@
   "name": "eventsourcemock",
   "version": "1.0.0",
   "description": "A mock for EventSource.",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "flow": "flow",
     "test": "jest",

@@ -1,14 +1,14 @@
 // @flow
-import EventEmitter from 'events';
+import EventEmitter from "events";
 
 type EventSourceConfigurationType = {
-  withCredentials: boolean,
+  withCredentials: boolean
 };
 
 type ReadyStateType = 0 | 1 | 2;
 
 const defaultOptions = {
-  withCredentials: false,
+  withCredentials: false
 };
 
 export const sources: { [key: string]: EventSource } = {};
@@ -24,7 +24,7 @@ export default class EventSource {
 
   constructor(
     url: string,
-    configuration?: EventSourceConfigurationType = defaultOptions,
+    configuration?: EventSourceConfigurationType = defaultOptions
   ) {
     this.url = url;
     this.withCredentials = configuration.withCredentials;
@@ -41,12 +41,12 @@ export default class EventSource {
     this.readyState = 2;
   }
 
-  emit(eventName: string, messageEvent: MessageEvent) {
-    this.__emitter.emit(eventName, messageEvent.data);
+  emit(eventName: string, messageEvent?: MessageEvent) {
+    this.__emitter.emit(eventName, messageEvent);
   }
 
   emitError(error: any) {
-    if (typeof this.onerror === 'function') {
+    if (typeof this.onerror === "function") {
       this.onerror(error);
     }
   }
