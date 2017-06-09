@@ -6,7 +6,7 @@ type State = {
   counter: number
 };
 
-export default class Component extends React.Component<> {
+export default class Component extends React.Component {
   props: Props;
   state: State;
   source: $PropertyType<window, "EventSource">;
