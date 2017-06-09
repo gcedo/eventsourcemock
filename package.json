@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "flow": "flow",
-    "test": "jest"
+    "test": "jest",
+    "build": "babel src/ -d /lib",
+    "format": "prettier --write '{src,__tests__}/**/*.js'",
+    "prepublish": "npm run build",
+    "precommit": "lint-staged"
   },
-  "author": "",
+  "author": "Edoardo Colombo <edo.gcolombo@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -16,12 +20,21 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^2.8.2",
     "flow-bin": "^0.47.0",
+    "husky": "^0.13.4",
     "jest": "^20.0.4",
+    "lint-staged": "^3.6.0",
+    "prettier": "^1.4.4",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4"
   },
   "dependencies": {},
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "jest": {
     "setupFiles": [
       "./__test__/configJSDom.js"
