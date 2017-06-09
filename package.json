@@ -6,7 +6,7 @@
   "scripts": {
     "flow": "flow",
     "test": "jest",
-    "build": "babel src/ -d /lib",
+    "build": "babel src/ -d lib/",
     "format": "prettier --write '{src,__tests__}/**/*.js'",
     "prepublish": "npm run build",
     "precommit": "lint-staged"
