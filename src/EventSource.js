@@ -37,6 +37,10 @@ export default class EventSource {
     this.__emitter.addListener(eventName, listener);
   }
 
+  removeEventListener(eventName: string, listener: Function) {
+    this.__emitter.removeListener(eventName, listener);
+  }
+
   close() {
     this.readyState = 2;
   }

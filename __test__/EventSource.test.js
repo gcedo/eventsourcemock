@@ -44,6 +44,24 @@ describe("add a listener", () => {
   });
 });
 
+describe("remove a listener", () => {
+  let eventSource;
+  let listener;
+  let emitter;
+
+  beforeAll(() => {
+    listener = jest.fn();
+    eventSource = new EventSource(URL);
+    emitter = eventSource.__emitter;
+    eventSource.addEventListener(EVENT_NAME, listener);
+    eventSource.removeEventListener(EVENT_NAME, listener);
+  });
+
+  it("should remove an event listener", () => {
+    expect(emitter.listeners(EVENT_NAME)).toEqual([]);
+  });
+});
+
 describe("close", () => {
   let eventSource;
   beforeAll(() => {
