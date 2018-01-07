@@ -169,7 +169,7 @@ expect(onErrorSpy).toHaveBeenCalledWith(error);
 See [EventTarget.addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ##### `removeEventListener(eventName: string, listener: Function)`
-See [EventTarget.removeEventListener(https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
+See [EventTarget.removeEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
 
 ##### `close()`
 See [EventSource.close](https://developer.mozilla.org/en-US/docs/Web/API/EventSource/close).
