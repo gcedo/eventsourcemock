@@ -75,6 +75,7 @@ describe('update counter on SSE', () => {
   let wrapper;
   beforeAll(() => {
     wrapper = mount(<Component />);
+    sources['http://example.com/events'].emitOpen();
   });
 
   it('should initialise counter to 0', () => {
@@ -128,6 +129,12 @@ EventSource(
 ##### `__emitter`
 A reference to the [node `EventEmitter`](https://nodejs.org/api/events.html#events_class_eventemitter) instance used internally.
 
+##### `onopen`
+See [eventSource.onopen](https://developer.mozilla.org/en-US/docs/Web/API/EventSource/onopen).
+
+##### `onmessage`
+See [eventSource.onmessage](https://developer.mozilla.org/en-US/docs/Web/API/EventSource/onmessage).
+
 ##### `onerror`
 See [eventSource.onerror](https://developer.mozilla.org/en-US/docs/Web/API/EventSource/onerror).
 
@@ -153,7 +160,13 @@ const messageEvent = new MessageEvent('type', {
 source.emit(messageEvent.type, messageEvent);
 ```
 
-##### `emitError(error: Error)`
+#### `emitOpen()`
+Simulates the opening of a connection. It sets the ready state to open and invokes the callback.
+
+##### `emitMessage(message: any)`
+Simulates dispatching of a message, it invokes the `onmessage` callback.
+
+#### `emitError(error: Error)`
 Simulates dispatching an error event on the `EventSource` instance. Causes `onerror` to be called.
 
 *Example (jest)*
