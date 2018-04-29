@@ -28,7 +28,7 @@ export default class EventSource {
   ) {
     this.url = url;
     this.withCredentials = configuration.withCredentials;
-    this.readyState = 1;
+    this.readyState = 0;
     this.__emitter = new EventEmitter();
     sources[url] = this;
   }
@@ -52,6 +52,19 @@ export default class EventSource {
   emitError(error: any) {
     if (typeof this.onerror === "function") {
       this.onerror(error);
+    }
+  }
+
+  emitOpen() {
+    this.readyState = 1;
+    if (typeof this.onopen === "function") {
+      this.onopen();
+    }
+  }
+
+  emitMessage(message: any) {
+    if (typeof this.onmessage === "function") {
+      this.onmessage(message);
     }
   }
 }

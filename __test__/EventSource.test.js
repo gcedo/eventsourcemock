@@ -90,3 +90,38 @@ describe("error", () => {
     expect(onErrorSpy).toHaveBeenCalledWith(error);
   });
 });
+
+describe("open", () => {
+  let eventSource;
+  let onOpenSpy;
+  beforeAll(() => {
+    onOpenSpy = jest.fn();
+    eventSource = new EventSource(URL);
+    eventSource.onopen = onOpenSpy;
+    eventSource.emitOpen();
+  });
+
+  it("should call onopen", () => {
+    expect(onOpenSpy).toHaveBeenCalled();
+  });
+
+  it("should set readyState to 1 (OPEN)", () => {
+    expect(eventSource.readyState).toBe(1);
+  });
+});
+
+describe("message", () => {
+  let eventSource;
+  let onMessageSpy;
+  const msg = "My message to you";
+  beforeAll(() => {
+    onMessageSpy = jest.fn();
+    eventSource = new EventSource(URL);
+    eventSource.onmessage = onMessageSpy;
+    eventSource.emitMessage(msg);
+  });
+
+  it("should call onmessage", () => {
+    expect(onMessageSpy).toHaveBeenCalledWith(msg);
+  });
+});
