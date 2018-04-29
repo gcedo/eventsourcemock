@@ -1,4 +1,4 @@
-# `eventsourcemock`
+# `eventsourcemock` [![Build Status](https://travis-ci.org/gcedo/eventsourcemock.svg?branch=master)](https://travis-ci.org/gcedo/eventsourcemock)
 
 A dependency free mock for EventSource objects.
 
