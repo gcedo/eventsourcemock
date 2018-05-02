@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import Component from './Component';
-import { sources } from '../src/EventSource';
+import EventSource, { sources } from '../src/EventSource';
 
 const messageEvent = new MessageEvent('foo', {
   data: '1',
@@ -30,6 +30,6 @@ describe('update counter on SSE', () => {
 
   it('close the EventSource on unmount', () => {
     wrapper.unmount();
-    expect(sources['http://example.com/events'].readyState).toBe(2);
+    expect(sources['http://example.com/events'].readyState).toBe(EventSource.CLOSED);
   });
 });

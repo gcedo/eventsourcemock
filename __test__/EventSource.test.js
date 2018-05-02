@@ -70,7 +70,7 @@ describe("close", () => {
 
   it("should set readyState to 2 (CLOSED)", () => {
     eventSource.close();
-    expect(eventSource.readyState).toBe(2);
+    expect(eventSource.readyState).toBe(EventSource.CLOSED);
   });
 });
 
@@ -106,7 +106,7 @@ describe("open", () => {
   });
 
   it("should set readyState to 1 (OPEN)", () => {
-    expect(eventSource.readyState).toBe(1);
+    expect(eventSource.readyState).toBe(EventSource.OPEN);
   });
 });
 
