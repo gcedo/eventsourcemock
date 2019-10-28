@@ -14,6 +14,10 @@ const defaultOptions = {
 export const sources: { [key: string]: EventSource } = {};
 
 export default class EventSource {
+  static CONNECTING: ReadyStateType;
+  static OPEN: ReadyStateType;
+  static CLOSED: ReadyStateType;
+
   __emitter: EventEmitter;
   onerror: ?EventHandler;
   onmessage: ?EventHandler;
@@ -68,3 +72,7 @@ export default class EventSource {
     }
   }
 }
+
+EventSource.CONNECTING = 0;
+EventSource.OPEN = 1;
+EventSource.CLOSED = 2;
